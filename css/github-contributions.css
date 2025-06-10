@@ -1,0 +1,192 @@
+/* GitHub Contributions */
+#github-contributions {
+    background: #0a0a0a;
+    padding: 2rem 0;
+    color: #ffd700;
+    border-top: 1px solid #ffd70033;
+    border-bottom: 1px solid #ffd70033;
+}
+
+.github-graph-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.github-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1.5rem;
+}
+
+.github-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.github-streak {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #ffd700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.github-streak strong {
+    color: #fff;
+    margin-left: 0.25rem;
+    font-weight: 700;
+}
+
+.github-calendar {
+    background: #0a0a0a;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+    border: 1px solid #ffd70033;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.calendar-grid {
+    display: flex;
+    gap: 3px;
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.calendar-week {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.calendar-day {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: #1a1a1a;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #ffd70011;
+}
+
+.calendar-day[data-level="1"] { background-color: #3d2e00; }
+.calendar-day[data-level="2"] { background-color: #7a5c00; }
+.calendar-day[data-level="3"] { background-color: #b88a00; }
+.calendar-day[data-level="4"] { background-color: #ffd700; }
+
+.calendar-day:hover {
+    transform: scale(1.3);
+    z-index: 1;
+    box-shadow: 0 0 0 2px #ffd700;
+    border-color: #ffd700;
+}
+
+.calendar-months {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2.5rem;
+    color: #ffd700;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.calendar-days {
+    position: absolute;
+    left: 0.5rem;
+    top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: #ffd700;
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.github-legend {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffd700;
+    font-size: 0.8rem;
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legend-item {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: #1a1a1a;
+    border: 1px solid #ffd71122;
+}
+
+.legend-item:nth-child(2) { background-color: #3d2e00; }
+.legend-item:nth-child(3) { background-color: #7a5c00; }
+.legend-item:nth-child(4) { background-color: #b88a00; }
+.legend-item:nth-child(5) { background-color: #ffd700; }
+
+/* Tooltip */
+.github-tooltip {
+    position: absolute;
+    background: #0a0a0a;
+    color: #ffd700;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    border: 1px solid #ffd70033;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.github-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0;
+    border-style: solid;
+    border-color: #0a0a0a transparent transparent;
+}
+
+.github-tooltip.visible {
+    opacity: 1;
+}
+
+.github-tooltip strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.github-tooltip span {
+    color: #ffd799;
+    font-size: 0.8em;
+    opacity: 0.9;
+}

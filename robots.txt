@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jainav-exe.github.io/sitemap.xml
+
+# Disallow crawling of development files
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /*.json
+
+# Crawl-delay: 10  # Uncomment if needed to prevent server overload

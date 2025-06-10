@@ -171,27 +171,34 @@ body {
 }
 
 .batman-logo {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto 2.5rem;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
-    animation: float 6s ease-in-out infinite, pulse 3s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    animation: float 6s ease-in-out infinite, pulse 3s ease-in-out infinite alternate, glow 4s ease-in-out infinite alternate;
     transform-style: preserve-3d;
     perspective: 1000px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .bat-logo-main {
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease, filter 0.5s ease;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
     transform-origin: center;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+}
+
+.batman-logo:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
 }
 
 .batman-logo:hover .bat-logo-main {
-    transform: rotateY(15deg) scale(1.05);
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9));
+    transform: scale(1.1) rotateY(15deg) rotateZ(-5deg);
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1));
 }
 
 .batman-logo::before {
@@ -199,19 +206,101 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0) 70%);
-    transform: translate(-50%, -50%) scale(0);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 215, 0, 0.4) 0%,
+        rgba(255, 215, 0, 0.2) 30%,
+        rgba(255, 215, 0, 0.1) 50%,
+        rgba(255, 215, 0, 0) 70%
+    );
     border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite alternate;
 }
 
 .batman-logo:hover::before {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.2);
     opacity: 1;
+    animation: none;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) brightness(1.1);
+    }
+    100% {
+        filter: drop-shadow(0 0 35px rgba(255, 215, 0, 1)) brightness(1.2);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.3);
+    outline: none;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #ffd700;
+    color: #0a0a0a;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.back-to-top:active {
+    transform: translateY(0);
+}
+
+.bat-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover .bat-icon {
+    transform: translateY(-3px);
 }
 
 @keyframes float {
@@ -352,6 +441,33 @@ body {
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
+/* Profile Photo */
+.photo-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+    position: relative;
+}
+
+.photo-frame {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #ffd700;
+    border-radius: 50%;
+    padding: 4px;
+    background: #23213a;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    overflow: hidden;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
 /* About Section */
 #about-section {
     background: linear-gradient(to bottom, #050505, #0a0a0a);
@@ -393,18 +509,31 @@ body {
 }
 
 .about-photo {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+    border: 4px solid #ffd700;
     border-radius: 50%;
-    border: 5px solid var(--batman-yellow);
+    padding: 4px;
+    background: #23213a url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd70080"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') no-repeat center center / 50% 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
-.about-photo img {
+.about-photo #profile-img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fallback if image fails to load */
+.about-photo:not(:has(img[src*='pfp.jpg'])) {
+    background: #23213a url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') no-repeat center center / 50% 50%;
 }
 
 .about-text {

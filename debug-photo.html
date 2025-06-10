@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .debug-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .photo-preview {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ffd700;
+            background: #1a1a1a;
+        }
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .debug-info {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+        }
+        code {
+            background: #2a2a2a;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .success { color: #4caf50; }
+        .error { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>Photo Debugger</h1>
+        
+        <div class="photo-preview">
+            <img src="./pfp.jpg" id="debug-photo" alt="Profile Photo" 
+                 onload="document.getElementById('status').innerHTML = '<span class=\'success\'>✅ Photo loaded successfully!</span>';"
+                 onerror="document.getElementById('status').innerHTML = '<span class=\'error\'>❌ Failed to load photo. Check console for details.</span>';">
+        </div>
+        
+        <div class="debug-info">
+            <h2>Debug Information</h2>
+            <p><strong>Photo Status:</strong> <span id="status">Loading...</span></p>
+            <p><strong>Image Source:</strong> <code>./pfp.jpg</code></p>
+            <p><strong>Current Directory:</strong> <code id="current-dir"></code></p>
+            <p><strong>If the photo isn't showing:</strong>
+                <ol>
+                    <li>Make sure the file exists in the same folder as this HTML file</li>
+                    <li>Check the filename is exactly <code>pfp.jpg</code> (case-sensitive)</li>
+                    <li>Try using the full path to the image</li>
+                    <li>Check the browser's developer console for any error messages</li>
+                </ol>
+            </p>
+            <button onclick="window.location.reload()">Refresh Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Display current directory
+        document.getElementById('current-dir').textContent = window.location.href;
+        
+        // Log image loading status to console
+        document.getElementById('debug-photo').addEventListener('error', function(e) {
+            console.error('Error loading image:', this.src);
+            console.error('Error details:', e);
+        });
+    </script>
+</body>
+</html>
