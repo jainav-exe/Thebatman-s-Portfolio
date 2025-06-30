@@ -3,126 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAINAV | The Dark Knight Portfolio</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap">
-    <link rel="stylesheet" href="batman-theme.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦇</text></svg>">
-    <meta name="theme-color" content="#0a0a0a">
+    <title>Jainav - Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="profile.jpg?v=4" as="image">
+    <style>
+        .profile-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;position:relative}
+        #profile-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Bat Signal Effect -->
-    <div class="bat-signal">
-        <div class="signal-light"></div>
-        <div class="bat-logo">
-            <svg viewBox="0 0 32 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 0C15.5 2 14 4 12 4C10 4 8 2 8 2C8 2 7 4 5 4C3 4 0 6 0 6C0 6 2 8 4 8C6 8 7 7 7 7C7 7 6 9 8 10C10 11 13 10 13 10C13 10 12 12 14 13C16 14 18 13 18 13C18 13 21 14 23 13C25 12 24 10 24 10C24 10 27 11 29 10C31 9 30 7 30 7C30 7 31 8 33 8C35 8 37 6 37 6C37 6 34 4 32 4C30 4 29 2 29 2C29 2 27 4 25 4C23 4 21.5 2 21 0C20.5 2 19 4 17 4C15 4 13.5 2 13 0Z" fill="#ffd700"/>
-            </svg>
-        </div>
+    <div class="flying-bats-container" id="flying-bats-container"></div>
+    <div class="bat-signal-spotlight" id="bat-signal-spotlight">
+        <svg viewBox="0 0 64 64" width="64" height="64" class="bat-signal-svg">
+            <defs>
+                <radialGradient id="bat-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <ellipse cx="32" cy="32" rx="30" ry="30" fill="url(#bat-glow)"/>
+            <path d="M16 36 Q24 28 32 36 Q40 28 48 36 Q44 24 32 24 Q20 24 16 36 Z" fill="#ffd700" stroke="#0a0a0a" stroke-width="2"/>
+        </svg>
     </div>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <div class="gotham-skyline"></div>
-        
-        <section id="home-section" class="page-section active">
-            <div class="container">
-                <div class="batman-logo">
-                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="bat-logo-main">
-                        <path d="M100 0C90 30 80 50 60 50C40 50 30 30 30 30C30 30 20 50 0 50C20 50 30 70 30 100C30 130 20 150 0 150C20 150 30 170 30 200H50C50 170 60 150 80 150C100 150 110 170 110 200H130C130 170 140 150 160 150C180 150 190 170 190 170C190 170 180 150 200 150C180 150 170 130 170 100C170 70 180 50 200 50C180 50 170 30 170 0H150C150 30 140 50 120 50C100 50 90 30 90 0H70Z" fill="#ffd700"/>
-                        <circle cx="80" cy="100" r="10" fill="#0a0a0a"/>
-                        <circle cx="120" cy="100" r="10" fill="#0a0a0a"/>
-                    </svg>
-                </div>
-                <h1>Welcome to the Batcave</h1>
-                <p class="tagline">I am Jainav, the Dark Knight of Web Development</p>
-                <div class="batman-quote">
-                    <p>"It's not who I am underneath, but what I do that defines me."</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects-section" class="page-section">
-            <div class="container">
-                <h2><span>My</span> Missions</h2>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#ffd700"/>
-                            <path d="M13 7h-2v6h6v-2h-4z" fill="#ffd700"/>
-                        </svg>
-                    </div>
-                    <h3>Movie Booking Website</h3>
-                    <p>A modern movie booking website with a sleek user interface and smooth animations. Built with HTML, CSS, and JavaScript to provide a seamless user experience.</p>
-                    <a href="https://jainav-exe.github.io/local_moviebookingwebsite/" target="_blank" class="btn">
-                        <span>View Mission</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
-                            <path d="M12 10l-1.41 1.41L16.17 17H4v-2h12.17l-5.58-5.59L12 10z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="coming-soon">
-                    <p>More missions in progress...</p>
-                    <div class="batman-logo-small">
-                        <svg viewBox="0 0 32 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 0C15.5 2 14 4 12 4C10 4 8 2 8 2C8 2 7 4 5 4C3 4 0 6 0 6C0 6 2 8 4 8C6 8 7 7 7 7C7 7 6 9 8 10C10 11 13 10 13 10C13 10 12 12 14 13C16 14 18 13 18 13C18 13 21 14 23 13C25 12 24 10 24 10C24 10 27 11 29 10C31 9 30 7 30 7C30 7 31 8 33 8C35 8 37 6 37 6C37 6 34 4 32 4C30 4 29 2 29 2C29 2 27 4 25 4C23 4 21.5 2 21 0C20.5 2 19 4 17 4C15 4 13.5 2 13 0Z" fill="#ffd700"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about-section" class="page-section">
-            <div class="container">
-                <h2><span>About</span> The Dark Knight</h2>
-                <div class="about-content">
-                    <div class="about-photo">
-                        <img src="pfp.jpg" alt="Jainav's photo" loading="lazy">
-                    </div>
-                    <div class="about-text">
-                        <h1>JAINAV</h1>
-                        <h2>Web Developer by Day, <span>Dark Knight by Night</span></h2>
-                        <p class="tech-stack">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript (ES6+)</span>
-                            <span>Figma (Learning)</span>
-                            <span>Responsive Design</span>
-                            <span>UI/UX Principles</span>
-                        </p>
-                        <p>I'm <strong>Jainav</strong>, a passionate web developer who fights crime in the digital world. By day, I craft beautiful, functional websites. By night, I protect Gotham from the shadows. My mission is to create exceptional digital experiences that make a difference.</p>
-                        <div class="social-links">
-                            <a href="https://x.com/jainavx" target="_blank" rel="noopener noreferrer" class="social-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                </svg>
-                                <span>@jainavx</span>
-                            </a>
-                            <a href="https://github.com/jainav-exe" target="_blank" rel="noopener noreferrer" class="social-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/>
-                                </svg>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
     <!-- Navigation -->
     <nav id="main-nav">
         <ul>
             <li><a href="#home-section" class="nav-link active">Batcave</a></li>
             <li><a href="#projects-section" class="nav-link">Missions</a></li>
             <li><a href="#about-section" class="nav-link">Identity</a></li>
+            <li><a href="#github-contributions" class="nav-link">GitHub</a></li>
+            <li><a href="#" class="nav-link" id="book-call-btn">Book a Call</a></li>
         </ul>
     </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home-section" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="profile-photo">
+                        <img src="profile.jpg?v=4" alt="Jainav's Profile" width="200" height="200" id="profile-img">
+                    </div>
+                    <h1>I'm <span class="highlight">Jainav</span></h1>
+                    <p class="hero-subtitle">Web Developer by Day, <span class="highlight">Dark Knight</span> by Night</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects-section" class="section">
+            <div class="container">
+                <h2 class="section-title">Missions</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>🎬 Jai Cinema Bookings</h3>
+                            <p>A local movie booking website with a modern interface and seamless booking experience.</p>
+                            <div class="project-links">
+                                <a href="https://jainav-exe.github.io/local_moviebookingwebsite/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/jainav-exe" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="section">
+            <div class="container">
+                <h2 class="section-title">Identity</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Professional Introduction</h3>
+                        <p>Hi, I'm Jainav, a passionate web developer with a love for building creative digital experiences. I specialize in front-end and full-stack development, and I'm always ready for the next mission.</p>
+                        <div class="social-links">
+                            <a href="https://x.com/jainavx" target="_blank" class="x-link">
+                                <i class="fab fa-x-twitter"></i> @jainavx
+                            </a>
+                            <a href="https://github.com/jainav-exe" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> @jainav-exe
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Contributions Section -->
+        <section id="github-contributions" class="section">
+            <div class="container">
+                <h2 class="section-title">GitHub Contributions</h2>
+                <div class="github-container">
+                    <div class="github-header">
+                        <div class="github-profile">
+                            <img src="https://github.com/jainav-exe.png" alt="GitHub Avatar" class="github-avatar">
+                            <div class="github-info">
+                                <h3>@jainav-exe</h3>
+                                <p>Web Developer & Open Source Enthusiast</p>
+                            </div>
+                        </div>
+                        <div class="github-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="repos-count">0</span>
+                                <span class="stat-label">Repositories</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="github-graph-container">
+                        <img 
+                            id="github-activity-graph"
+                            src="https://github-readme-activity-graph.vercel.app/graph?username=jainav-exe&bg_color=0a0a0a&color=ffffff&line=ffd700&point=ffffff&area=true&hide_border=true"
+                            alt="Jainav's GitHub Activity Graph"
+                            class="github-activity-graph"
+                        />
+                    </div>
+                    <div class="github-actions">
+                        <a href="https://github.com/jainav-exe" target="_blank" class="github-btn">
+                            <i class="fab fa-github"></i>
+                            View Full Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="24" height="24" class="bat-icon">
+            <path d="M12 4L4 12h5v8h6v-8h5z" fill="currentColor"/>
+        </svg>
+    </button>
 
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
 
-    <script src="script.js"></script>
+    <div class="modal-overlay" id="book-call-modal">
+        <div class="modal-content">
+            <div class="modal-batsignal-bg">
+                <svg viewBox="0 0 120 60" width="120" height="60" class="modal-batsignal-svg">
+                    <defs>
+                        <radialGradient id="modal-bat-glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="60" cy="30" rx="55" ry="25" fill="url(#modal-bat-glow)"/>
+                    <path d="M30 36 Q48 18 60 36 Q72 18 90 36 Q82 10 60 10 Q38 10 30 36 Z" fill="#ffd700" stroke="#0a0a0a" stroke-width="2"/>
+                </svg>
+            </div>
+            <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+            <div class="modal-quote">“I wear a mask. And that mask, it’s not to hide who I am, but to create what I am.”</div>
+            <form id="book-call-form" class="modal-form">
+                <label>Email
+                    <input type="email" name="user_email" id="user_email" required placeholder="Your email">
+                </label>
+                <label>Subject
+                    <input type="text" name="subject" id="subject" required placeholder="Subject">
+                </label>
+                <label>Message
+                    <textarea name="message" id="message" rows="4" required placeholder="Your message"></textarea>
+                </label>
+                <button type="submit" class="modal-submit-btn">Send <span class="modal-bat-icon">🦇</span></button>
+            </form>
+            <div class="modal-success" id="modal-success">
+                <div class="modal-batsignal-flash"></div>
+                <div class="modal-success-text">Bat-signal sent!<br>Your message is on its way to Gotham.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gotham-skyline-parallax" id="gotham-skyline-parallax">
+        <div class="skyline-layer skyline-back">
+            <!-- Back layer SVG -->
+            <svg viewBox="0 0 1440 120" width="100%" height="120" preserveAspectRatio="none">
+                <rect x="0" y="80" width="1440" height="40" fill="#222"/>
+                <rect x="100" y="60" width="80" height="60" fill="#222"/>
+                <rect x="400" y="70" width="60" height="50" fill="#222"/>
+                <rect x="900" y="50" width="100" height="70" fill="#222"/>
+                <rect x="1200" y="80" width="50" height="40" fill="#222"/>
+            </svg>
+        </div>
+        <div class="skyline-layer skyline-mid">
+            <!-- Mid layer SVG with glowing windows -->
+            <svg viewBox="0 0 1440 120" width="100%" height="120" preserveAspectRatio="none">
+                <rect x="0" y="90" width="1440" height="30" fill="#333"/>
+                <rect x="200" y="60" width="90" height="60" fill="#333"/>
+                <rect x="600" y="80" width="70" height="40" fill="#333"/>
+                <rect x="1100" y="70" width="80" height="50" fill="#333"/>
+                <!-- Glowing windows -->
+                <rect x="215" y="90" width="8" height="12" fill="#ffd700" opacity="0.7"/>
+                <rect x="630" y="95" width="6" height="10" fill="#ffd700" opacity="0.5"/>
+                <rect x="1120" y="100" width="10" height="14" fill="#ffd700" opacity="0.8"/>
+            </svg>
+        </div>
+        <div class="skyline-layer skyline-front">
+            <!-- Front layer SVG -->
+            <svg viewBox="0 0 1440 120" width="100%" height="120" preserveAspectRatio="none">
+                <rect x="0" y="100" width="1440" height="20" fill="#111"/>
+                <rect x="320" y="70" width="120" height="50" fill="#111"/>
+                <rect x="800" y="90" width="90" height="30" fill="#111"/>
+                <rect x="1300" y="80" width="60" height="40" fill="#111"/>
+            </svg>
+        </div>
+        <div class="skyline-clouds" id="skyline-clouds"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init('eWissHEOfpWszHn9Q-');
+      })();
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/github-contributions.js"></script>
 </body>
-</html> 
+</html>

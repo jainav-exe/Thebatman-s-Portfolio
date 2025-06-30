@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Test - Batman Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+        }
+        .test-button {
+            background: #ffd700;
+            color: #0a0a0a;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #fff;
+        }
+        .success {
+            color: #00ff00;
+        }
+        .error {
+            color: #ff0000;
+        }
+        .warning {
+            color: #ffaa00;
+        }
+        .test-area {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px dashed #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Batman Portfolio - Button Test</h1>
+    
+    <div class="test-section">
+        <h2>Navigation Links Test</h2>
+        <p>Click these links to test smooth scrolling:</p>
+        <a href="#home-section" class="test-button">Batcave (Home)</a>
+        <a href="#projects-section" class="test-button">Missions (Projects)</a>
+        <a href="#about-section" class="test-button">Identity (About)</a>
+        <a href="#github-contributions" class="test-button">GitHub</a>
+    </div>
+    
+    <div class="test-section">
+        <h2>External Links Test</h2>
+        <p>These should open in new tabs:</p>
+        <a href="https://github.com/jainav-exe" target="_blank" class="test-button">GitHub Profile</a>
+        <a href="https://x.com/jainavx" target="_blank" class="test-button">Twitter/X</a>
+        <a href="https://jainav-exe.github.io/local_moviebookingwebsite/" target="_blank" class="test-button">Project Demo</a>
+    </div>
+    
+    <div class="test-section">
+        <h2>Modal Test</h2>
+        <p>Click to test the Book a Call modal:</p>
+        <button id="test-modal-btn" class="test-button">Open Book a Call Modal</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>🦇 Bat Animation Test</h2>
+        <p class="warning">Click on the empty areas below to test bat spawning:</p>
+        <div class="test-area">
+            <p>Click here (empty area) - should spawn bats</p>
+        </div>
+        <div class="test-area">
+            <p>Click here (empty area) - should spawn bats</p>
+        </div>
+        <p class="success">✅ If you see "🦇 Bats spawned" in console, it's working!</p>
+        <p class="error">❌ If you see "🎯 Button/link clicked" when clicking buttons, buttons are working!</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Logs</h2>
+        <p>Open browser console (F12) to see debug messages when clicking buttons.</p>
+        <p class="success">✅ If you see console logs, buttons are working!</p>
+        <p class="error">❌ If no console logs appear, there's an issue.</p>
+        <p class="warning">🦇 Bats should only spawn when clicking empty areas, not buttons!</p>
+    </div>
+    
+    <script>
+        // Test modal functionality
+        document.getElementById('test-modal-btn').addEventListener('click', () => {
+            console.log('🎯 Test modal button clicked');
+            alert('Modal test - This would open the Book a Call modal in the real site!');
+        });
+        
+        // Test smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    console.log(`🎯 Smooth scrolling to: ${targetId}`);
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    console.log(`❌ Target section not found: ${targetId}`);
+                }
+            });
+        });
+        
+        // Test external links
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log(`🎯 External link clicked: ${link.href}`);
+            });
+        });
+        
+        // Test bat spawning on non-interactive areas
+        document.querySelectorAll('.test-area').forEach(area => {
+            area.addEventListener('click', (e) => {
+                if (e.target === area || e.target.tagName === 'P') {
+                    console.log('🦇 Test area clicked - bats should spawn');
+                }
+            });
+        });
+        
+        console.log('🎯 Test page loaded successfully!');
+        console.log('🦇 Bat animation test: Click empty areas to spawn bats, click buttons to test functionality');
+    </script>
+</body>
+</html> 
